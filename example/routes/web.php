@@ -1,17 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'greeting' => 'Yo', // $greeting
+        'name' => 'Lary Robot'
+    ]);
 });
 
-Route::get('/about', function () {
-    // return "About Page";
-    // return ['foo' => 'bar']; // returns json
-    return view('about');
+Route::get('/jobs', function () {
+    return view(
+        'jobs',
+        [
+            'jobs' => Job::all()
+        ]
+    );
+});
+
+Route::get('/jobs/{id}', function ($id) {
+    // Finds the first instance of the boolean being true
+    $job = Job::find($id);
+    return view('job', ['job' => $job]);
 });
 
 Route::get('/contact', function () {
+    // return "Contact Page";
+    // return ['foo' => 'bar']; // returns json
     return view('contact');
 });
