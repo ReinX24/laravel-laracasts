@@ -1,0 +1,68 @@
+# Creating an new laravel application
+laravel new {application_name}
+
+# Show database information
+php artisan db:show
+
+# Migration, create new database with the code using the database/migration files
+php artisan migrate
+
+# Refreshing migrations, applies any changes in the database/migration files
+php artisan migrate:refresh
+
+# Executing a migration for a model
+php artisan make:migration
+create_job_listings_table
+
+After creating a new migration file, we need to set the different attributes 
+that our table will have in the migration file itself.
+
+# After making a migration, make sure to apply these migrations
+php artisan migrate
+
+This creates a job_listings table for our database.
+
+# Creating a shell for our laravel app
+php artisan tinker
+
+Here we can run commands such as:
+App\Models\Job::create(['title' => 'Acme Director', 'salary' => '$1,000,000']);
+App\Models\Job::all(); // gets all job_listings records
+App\Models\Job::find(1); // gets record by their id
+
+# Using eloquent
+
+# Show the settings for the make model
+php artisan help make:model
+
+# Creating a model
+php artisan make:model Comment 
+
+# Creating a model and then creating a migration for said model
+php artisan make:model Post -m
+
+This creates a model but also a corresponding post table migration.
+After creating a migration file, we then apply this migration file to our db.
+
+php artisan migrate
+
+# Using UserFactory
+
+# Open tinkerer
+php artisan tinker
+
+# Create a User with fake data, make sure the factory has the same attributes as User model
+App\Models\User::factory()->create();
+
+This creates random User data and adds the record to the database.
+
+# Creating 100 fake User records.
+App\Models\User::factory(100)->create()
+
+# Generating a Factory for our Job model
+php artisan make:factory JobFactory
+
+After creating a Factory, make sure that it has use HasFactory; in the class.
+
+# Creating unverified User records
+App\Models\User::factory()->unverified()->create()
