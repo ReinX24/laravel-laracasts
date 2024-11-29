@@ -66,3 +66,6 @@ After creating a Factory, make sure that it has use HasFactory; in the class.
 
 # Creating unverified User records
 App\Models\User::factory()->unverified()->create()
+
+# Creating model and a factory
+php artisan make:model Employer -f

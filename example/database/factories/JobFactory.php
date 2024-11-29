@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Employer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,8 @@ class JobFactory extends Factory
     {
         return [
             'title' => fake()->jobTitle(),
+            // Create an Employer object and reference its id as the foreign key
+            'employer_id' => Employer::factory(),
             'salary' => "$50,000 USD"
         ];
     }

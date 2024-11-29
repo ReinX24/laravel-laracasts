@@ -14,4 +14,11 @@ class Job extends Model
     // Data that could be filled in when inserting a job_listing record using
     // a Job object.
     protected $fillable = ['title', 'salary'];
+
+    public function employer()
+    {
+        // This means that this job belongs to an instance of the Employer class
+        // $job->employer
+        return $this->belongsTo(Employer::class);
+    }
 }
