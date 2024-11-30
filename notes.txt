@@ -69,3 +69,17 @@ App\Models\User::factory()->unverified()->create()
 
 # Creating model and a factory
 php artisan make:model Employer -f
+
+# Creating a model, factory, and a migration
+php artisan make:model Tag -mf
+
+# Adding a tag to a job, attaches a tag to a job
+$tag->jobs()->attach(App\Models\Job::find(7))
+
+# Run a new query, shows relationships with new records
+$tag->jobs()->get()
+
+# Get the title only
+$tag->jobs()->get()->pluck("title")
+
+// TODO: test foreign key functionalities
