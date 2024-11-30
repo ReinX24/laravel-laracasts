@@ -81,5 +81,3 @@ $tag->jobs()->get()
 
 # Get the title only
 $tag->jobs()->get()->pluck("title")
-
-// TODO: test foreign key functionalities

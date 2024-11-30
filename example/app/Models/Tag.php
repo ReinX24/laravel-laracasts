@@ -21,6 +21,7 @@ class Tag extends Model
 
     public function posts()
     {
+        // The relatedPivotKey is the associated key of the relation
         return $this->belongsToMany(Post::class, relatedPivotKey: 'post_id');
     }
 }

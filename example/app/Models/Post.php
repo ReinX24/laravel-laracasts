@@ -21,6 +21,7 @@ class Post extends Model
 
     public function tags()
     {
+        // The foreignPivotKey is the foreign key of the parent model
         return $this->belongsToMany(Tag::class, foreignPivotKey: "post_id");
     }
 }

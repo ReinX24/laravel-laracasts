@@ -43,7 +43,7 @@
                                     <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="size-10 rounded-full" src="https://scontent.fbag4-1.fna.fbcdn.net/v/t39.30808-6/294561777_578879500335630_7264503837743250198_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG4JQYDDJeXNE4LymZPiqEHhrofycd-nyuGuh_Jx36fK7qTJUnxvpbq_2y1lojIeXEIgwpI_nQfWl_I1Zcxwuvc&_nc_ohc=Y3BQy6y5NaUQ7kNvgHMI2e8&_nc_zt=23&_nc_ht=scontent.fbag4-1.fna&_nc_gid=A7CG0094Pu0mpbRtiQf1lyI&oh=00_AYCsnxSx5OPVIIX-laQ0xzlVkPUwI5DSNzb7xeos_8UM3w&oe=674946A0" alt="">
+                                        <img class="size-10 rounded-full" src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="">
                                     </button>
                                 </div>
                             </div>
