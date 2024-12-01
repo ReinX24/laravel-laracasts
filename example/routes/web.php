@@ -14,10 +14,14 @@ Route::get('/jobs', function () {
     // Using eager loading for our database, gets records and their employers
     // in a single query rather than multiple queries.
     // This query gets the Job records along with their employers
-    $jobs = Job::with('employer')->paginate();
+    // $jobs = Job::with('employer')->get();
+
     // This is better than using this, which uses lazy loading and runs more
     // queries on our database.
     // $jobs = Job::all();
+
+    // Using pagination
+    $jobs = Job::with('employer')->paginate(3);
 
     return view(
         'jobs',

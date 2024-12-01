@@ -81,3 +81,18 @@ $tag->jobs()->get()
 
 # Get the title only
 $tag->jobs()->get()->pluck("title")
+
+# Disabling lazy loading for less queries
+public function boot(): void
+{
+    // Disabling lazy loading
+    Model::preventLazyLoading();
+}
+
+# Editing the paginator
+
+# Extracting the markup from the vendor view to the resources view
+php artisan vendor:publish
+
+Choose the laravel-pagination, this will generate the files in the resources
+folder.
