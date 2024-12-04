@@ -7,7 +7,7 @@ php artisan db:show
 # Migration, create new database with the code using the database/migration files
 php artisan migrate
 
-# Refreshing migrations, applies any changes in the database/migration files
+# Refreshing migrations, applies any changes in the database/migration files, also removes database items
 php artisan migrate:refresh
 
 # Executing a migration for a model
@@ -96,3 +96,18 @@ php artisan vendor:publish
 
 Choose the laravel-pagination, this will generate the files in the resources
 folder.
+
+# Populating the database as we reset migrations
+php artisan migrate:fresh --seed
+
+# Only running the seeders
+php artisan db:seed
+
+# Creating a new seeder class
+php artisan make:seeder
+
+# Checking all db:seed options
+php artisan help db:seed
+
+# Setting the default seeder class, also runs the seeder class
+php artisan db:seed --class=JobSeeder
