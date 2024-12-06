@@ -26,17 +26,26 @@ Route::get('/jobs', function () {
     $jobs = Job::with('employer')->cursorPaginate(3); // most performant
 
     return view(
-        'jobs',
+        'jobs.index',
         [
             'jobs' => $jobs
         ]
     );
 });
 
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
+
+Route::post('/jobs', function () {
+    dd('Hello from the post request');
+});
+
+// Routes with wildcards should be near the bottom
 Route::get('/jobs/{id}', function ($id) {
     // Finds the first instance of the boolean being true
     $job = Job::find($id);
-    return view('job', ['job' => $job]);
+    return view('jobs.show', ['job' => $job]);
 });
 
 Route::get('/contact', function () {
