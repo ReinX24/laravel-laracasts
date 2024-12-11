@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use Symfony\Component\VarDumper\Caster\RedisCaster;
 
 Route::get('/', function () {
     return view('home', [
@@ -23,7 +24,7 @@ Route::get('/jobs', function () {
     // Using pagination
     // $jobs = Job::with('employer')->paginate(3); // 1, 2, 3
     // $jobs = Job::with('employer')->simplePaginate(3); // next, previous
-    $jobs = Job::with('employer')->cursorPaginate(3); // most performant
+    $jobs = Job::with('employer')->latest()->cursorPaginate(3); // most performant
 
     return view(
         'jobs.index',
@@ -38,7 +39,14 @@ Route::get('/jobs/create', function () {
 });
 
 Route::post('/jobs', function () {
-    dd('Hello from the post request');
+    // validation...
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1
+    ]);
+
+    return redirect("/jobs");
 });
 
 // Routes with wildcards should be near the bottom

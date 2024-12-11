@@ -13,7 +13,10 @@ class Job extends Model
 
     // Data that could be filled in when inserting a job_listing record using
     // a Job object.
-    protected $fillable = ['title', 'salary'];
+    // protected $fillable = ['employer_id', 'title', 'salary'];
+
+    // All fields are accepted when making a POST request
+    protected $guarded = [];
 
     public function employer()
     {
