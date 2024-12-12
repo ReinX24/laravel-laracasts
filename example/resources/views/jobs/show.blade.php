@@ -7,4 +7,7 @@
     <p>
         This job pays {{ $job["salary"] }} per year.
     </p>
+
+    <!-- TODO: continue @3:53:27 -->
+    <p></p>
 </x-layout>
