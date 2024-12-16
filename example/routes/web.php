@@ -11,6 +11,7 @@ Route::get('/', function () {
     ]);
 });
 
+// Index
 Route::get('/jobs', function () {
     // Using eager loading for our database, gets records and their employers
     // in a single query rather than multiple queries.
@@ -34,10 +35,20 @@ Route::get('/jobs', function () {
     );
 });
 
+// Show
+// Routes with wildcards should be near the bottom
+Route::get('/jobs/{id}', function ($id) {
+    // Finds the first instance of the boolean being true
+    $job = Job::find($id);
+    return view('jobs.show', ['job' => $job]);
+});
+
+// Create
 Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
 
+// Store
 Route::post('/jobs', function () {
     // Adding validation for our request data
     request()->validate([
@@ -54,9 +65,20 @@ Route::post('/jobs', function () {
     return redirect("/jobs");
 });
 
-// Routes with wildcards should be near the bottom
-Route::get('/jobs/{id}', function ($id) {
-    // Finds the first instance of the boolean being true
+// Edit
+Route::get('/jobs/{id}/edit', function ($id) {
+    $job = Job::find($id);
+    return view('jobs.edit', ['job' => $job]);
+});
+
+// Update, from the edit view
+Route::patch('/jobs/{id}', function ($id) {
+    $job = Job::find($id);
+    return view('jobs.show', ['job' => $job]);
+});
+
+// Destroy
+Route::delete('/jobs/{id}', function ($id) {
     $job = Job::find($id);
     return view('jobs.show', ['job' => $job]);
 });
