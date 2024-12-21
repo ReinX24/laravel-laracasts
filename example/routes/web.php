@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
-use Symfony\Component\VarDumper\Caster\RedisCaster;
 
 Route::get('/', function () {
     return view('home', [
@@ -12,100 +12,31 @@ Route::get('/', function () {
 });
 
 // Index
-Route::get('/jobs', function () {
-    // Using eager loading for our database, gets records and their employers
-    // in a single query rather than multiple queries.
-    // This query gets the Job records along with their employers
-    // $jobs = Job::with('employer')->get();
-
-    // This is better than using this, which uses lazy loading and runs more
-    // queries on our database.
-    // $jobs = Job::all();
-
-    // Using pagination
-    // $jobs = Job::with('employer')->paginate(3); // 1, 2, 3
-    // $jobs = Job::with('employer')->simplePaginate(3); // next, previous
-    $jobs = Job::with('employer')->latest()->cursorPaginate(3); // most performant
-
-    return view(
-        'jobs.index',
-        [
-            'jobs' => $jobs
-        ]
-    );
-});
+Route::get('/jobs', [JobController::class, 'index']);
 
 // Show
 // Routes with wildcards should be near the bottom
-Route::get('/jobs/{id}', function ($id) {
-    // Finds the first instance of the boolean being true
-    $job = Job::find($id);
-    return view('jobs.show', ['job' => $job]);
-});
+Route::get('/jobs/{job}', [JobController::class, 'show']);
 
 // Create
-Route::get('/jobs/create', function () {
-    return view('jobs.create');
-});
+Route::get('/jobs/create', [JobController::class, 'create']);
 
 // Store
-Route::post('/jobs', function () {
-    // Adding validation for our request data
-    request()->validate([
-        'title' => ['required', 'min:3'],
-        'salary' => ['required']
-    ]);
-
-    Job::create([
-        'title' => request('title'),
-        'salary' => request('salary'),
-        'employer_id' => 1
-    ]);
-
-    return redirect("/jobs");
-});
+Route::post('/jobs', [JobController::class, 'store']);
 
 // Edit
-Route::get('/jobs/{id}/edit', function ($id) {
-    $job = Job::find($id);
-    return view('jobs.edit', ['job' => $job]);
-});
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
 
 // Update, from the edit view
-Route::patch('/jobs/{id}', function ($id) {
-    // validate
-    request()->validate([
-        'title' => ['required', 'min:3'],
-        'salary' => ['required']
-    ]);
-
-    // authorize (on hold...)
-
-    // find and update the job
-    $job = Job::findOrFail($id);
-
-    $job->update([
-        'title' => request('title'),
-        'salary' => request('salary')
-    ]);
-
-    // redirect to the job page
-    return redirect('/jobs/' . $job->id);
-});
+Route::patch('/jobs/{job}', [JobController::class, 'update']);
 
 // Destroy
-Route::delete('/jobs/{id}', function ($id) {
-    // authorize (on hold...)
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
-    // delete the job
-    Job::findOrFail($id)->delete();
-
-    // redirect
-    return redirect("/jobs");
-});
+// TODO: continue @4:21:49
 
 Route::get('/contact', function () {
     // return "Contact Page";
-    // return ['foo' => 'bar']; // returns json
+    // return ['foo' => 'bar']; // returns jso
     return view('contact');
 });

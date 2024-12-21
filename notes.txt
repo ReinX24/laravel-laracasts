@@ -111,3 +111,6 @@ php artisan help db:seed
 
 # Setting the default seeder class, also runs the seeder class
 php artisan db:seed --class=JobSeeder
+
+# Creating a controller
+php artisan make:controller
