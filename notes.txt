@@ -1,6 +1,9 @@
 # Creating an new laravel application
 laravel new {application_name}
 
+# Starting laravel application using php
+php -S localhost:8080 -t public
+
 # Show database information
 php artisan db:show
 
@@ -114,3 +117,9 @@ php artisan db:seed --class=JobSeeder
 
 # Creating a controller
 php artisan make:controller
+
+# Showing all existing routes
+php artisan route:list
+
+# Showing all routes except for the ones in the vendor folder
+php artisan route:list --except-vendor
