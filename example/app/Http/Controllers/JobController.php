@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Employer;
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -59,6 +62,24 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
+        // Checks if the user is authorized to edit a certain job
+        Gate::define('edit-job', function (User $user, Job $job) {
+            // Checks if the currently logged in user is the one who is responsible
+            // for the job.
+            // is() checks if the two models have the same id and belong to the same
+            // table.
+            // isNot() is the reverse of is().
+            // return $job->employer->user->is(Auth::user());
+            return $job->employer->user->is($user);
+        });
+
+        // If the user is not signed in, redirect them to the login page
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
+
+        Gate::authorize('edit-job', $job);
+
         // $job = Job::find($id);
         return view('jobs.edit', ['job' => $job]);
     }

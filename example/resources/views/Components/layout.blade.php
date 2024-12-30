@@ -36,7 +36,10 @@
                             @endguest
                             <!-- If authenticated, display this -->
                             @auth
-                            <p class="text-white">Logged In</p>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <x-form-button>Log Out</x-form-button>
+                            </form>
                             @endauth
                         </div>
                     </div>

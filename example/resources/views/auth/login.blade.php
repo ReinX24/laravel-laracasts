@@ -13,7 +13,8 @@
                         <x-form-label for="email">Email</x-form-label>
 
                         <div class="mt-2">
-                            <x-form-input type="email" name="email" id="email" required />
+                            <!-- :value means that it is treated as an expression rather than a string -->
+                            <x-form-input type="email" name="email" id="email" :value="old('email')" required />
 
                             <x-form-error name="email" />
                         </div>
