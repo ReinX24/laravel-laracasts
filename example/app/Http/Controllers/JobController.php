@@ -63,21 +63,22 @@ class JobController extends Controller
     public function edit(Job $job)
     {
         // Checks if the user is authorized to edit a certain job
-        Gate::define('edit-job', function (User $user, Job $job) {
-            // Checks if the currently logged in user is the one who is responsible
-            // for the job.
-            // is() checks if the two models have the same id and belong to the same
-            // table.
-            // isNot() is the reverse of is().
-            // return $job->employer->user->is(Auth::user());
-            return $job->employer->user->is($user);
-        });
+        // Gate::define('edit-job', function (User $user, Job $job) {
+        // Checks if the currently logged in user is the one who is responsible
+        // for the job.
+        // is() checks if the two models have the same id and belong to the same
+        // table.
+        // isNot() is the reverse of is().
+        // return $job->employer->user->is(Auth::user());
+        //     return $job->employer->user->is($user);
+        // });
 
         // If the user is not signed in, redirect them to the login page
-        if (Auth::guest()) {
-            return redirect('/login');
-        }
+        // if (Auth::guest()) {
+        //     return redirect('/login');
+        // }
 
+        // Checks if the current user can edit the job, returns 403 if not
         Gate::authorize('edit-job', $job);
 
         // $job = Job::find($id);
