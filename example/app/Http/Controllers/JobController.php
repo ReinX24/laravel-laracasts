@@ -79,7 +79,7 @@ class JobController extends Controller
         // }
 
         // Checks if the current user can edit the job, returns 403 if not
-        Gate::authorize('edit-job', $job);
+        // Gate::authorize('edit-job', $job);
 
         // $job = Job::find($id);
         return view('jobs.edit', ['job' => $job]);

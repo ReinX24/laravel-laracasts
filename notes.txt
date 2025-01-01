@@ -123,3 +123,6 @@ php artisan route:list
 
 # Showing all routes except for the ones in the vendor folder
 php artisan route:list --except-vendor
+
+# Creating a policy
+php artisan make:policy

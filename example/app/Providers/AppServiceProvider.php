@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
         // Configuring paginator
         // Paginator::useBootstrapFive();
 
-        Gate::define('edit-job', function (User $user, Job $job) {
-            return $job->employer->user->is($user);
-        });
+        // Gate::define('edit-job', function (User $user, Job $job) {
+        //     return $job->employer->user->is($user);
+        // });
     }
 }
