@@ -126,3 +126,6 @@ php artisan route:list --except-vendor
 
 # Creating a policy
 php artisan make:policy
+
+# Creating a mailable
+php artisan make:mail

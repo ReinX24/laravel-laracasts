@@ -5,6 +5,9 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
+// Dummy route
+Route::get('/test', function () {});
+
 Route::view("/", "home", [
     "greeting" => "Hello",
     "name" => "Lary Robot"
