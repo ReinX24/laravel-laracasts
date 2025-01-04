@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Route;
 // Dummy route
 Route::get('/test', function () {
     // return new JobPosted();
-    Mail::to("test@example.com")->send(
-        new JobPosted()
-    );
+    // Mail::to("test@example.com")->send(
+    //     new JobPosted()
+    // );
 
     return "Done";
 });
