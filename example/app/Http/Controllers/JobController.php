@@ -61,7 +61,9 @@ class JobController extends Controller
         ]);
 
         // employer->user grabs the user's in general
-        Mail::to($job->employer->user)->send(
+        // queue sends the email to a queue rather than sending the email as 
+        // the request is being made
+        Mail::to($job->employer->user)->queue(
             new JobPosted($job)
         );
 

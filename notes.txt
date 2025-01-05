@@ -129,3 +129,23 @@ php artisan make:policy
 
 # Creating a mailable
 php artisan make:mail
+
+# Processing the jobs in the queue
+# When a change in a dedicated Job class is made, this command should be rerun
+php artisan queue:work
+
+# Creating a dedicated job class
+php artisan make:job
+
+# Installing dependencies from the package.json file
+npm install
+
+# Running npm to reflect css or js changes
+npm run dev
+
+# Installing tailwind using npm
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+# Applying changes in js and css using vite
+npm run build

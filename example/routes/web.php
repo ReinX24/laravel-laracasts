@@ -3,19 +3,32 @@
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SessionController;
+use App\Jobs\TranslateJob;
 use App\Mail\JobPosted;
+use App\Models\Job;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 // Dummy route
-Route::get('/test', function () {
-    // return new JobPosted();
-    // Mail::to("test@example.com")->send(
-    //     new JobPosted()
-    // );
+// Route::get('/test', function () {
+//* Emailable classes
+// return new JobPosted();
+// Mail::to("test@example.com")->send(
+//     new JobPosted()
+// );
 
-    return "Done";
-});
+//* Queues
+// Dispatching a job, this throws the job to the queue
+// dispatch(function () {
+//     logger('hello from the queue!');
+// })->delay(5);
+
+// Dispatching a job from a dedicated class
+//     $job = Job::first();
+//     TranslateJob::dispatch($job);
+
+//     return "Done";
+// });
 
 Route::view("/", "home", [
     "greeting" => "Hello",
