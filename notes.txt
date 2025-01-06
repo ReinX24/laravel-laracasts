@@ -149,3 +149,13 @@ npx tailwindcss init -p
 
 # Applying changes in js and css using vite
 npm run build
+
+# Commands used in pixel-positions application
+php artisan make:migration create_employers_table
+php artisan migrate // does new migrations
+php artisan migrate fresh // redoes all migrations
+php artisan help make:model
+php artisan make:model Employer -cfs --policy // creates model, controller, factory, seeder, and a policy
+php artisan make:model Job --all 
+php artisan make:test
+php artisan test

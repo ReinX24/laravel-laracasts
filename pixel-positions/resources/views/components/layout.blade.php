@@ -20,7 +20,7 @@
                 </a>
             </div>
 
-            <div class="space-x-6 font-bold">
+            <div class="space-x-6 font-semibold">
                 <a href="#">Jobs</a>
                 <a href="#">Careers</a>
                 <a href="#">Salaries</a>

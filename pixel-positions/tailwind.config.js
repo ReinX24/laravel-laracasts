@@ -17,6 +17,9 @@ export default {
             colors: {
                 black: "#060606",
             },
+            fontSize: {
+                "2xs": "0.625rem",
+            },
         },
     },
     plugins: [],
