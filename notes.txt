@@ -168,3 +168,6 @@ php artisan make:controller SessionController --resource // --resource means it 
 php artisan make:controller RegisteredUserController --resource
 php artisan make:controller SearchController
 php artisan make:controller TagController
+
+# Linking public uploaded photos to public folder
+php artisan storage:link
