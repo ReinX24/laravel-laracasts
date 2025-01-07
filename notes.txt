@@ -167,3 +167,4 @@ php artisan migrate:fresh --seed
 php artisan make:controller SessionController --resource // --resource means it stores default rest endpoint method
 php artisan make:controller RegisteredUserController --resource
 php artisan make:controller SearchController
+php artisan make:controller TagController
