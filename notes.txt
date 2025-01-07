@@ -159,3 +159,11 @@ php artisan make:model Employer -cfs --policy // creates model, controller, fact
 php artisan make:model Job --all 
 php artisan make:test
 php artisan test
+php artisan make:model Tag -fm
+php artisan make:migration create_job_tag_table
+php artisan migrate
+php artisan db:seed
+php artisan migrate:fresh --seed
+php artisan make:controller SessionController --resource // --resource means it stores default rest endpoint method
+php artisan make:controller RegisteredUserController --resource
+php artisan make:controller SearchController

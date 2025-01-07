@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-black text-white font-hanken-grotesk">
+<body class="bg-black text-white font-hanken-grotesk pb-20">
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
@@ -27,9 +27,18 @@
                 <a href="#">Companies</a>
             </div>
 
+            @auth
             <div>
-                <a href="">Post a Job</a>
+                <a href="/jobs/create">Post a Job</a>
             </div>
+            @endauth
+
+            @guest   
+            <div class="space-x-6 font-semibold">
+                <a href="/register">Sign Up</a>
+                <a href="/login">Log In</a>
+            </div>
+            @endguest
         </nav>
 
         <main class="mt-10 max-w-[986px] mx-auto">
