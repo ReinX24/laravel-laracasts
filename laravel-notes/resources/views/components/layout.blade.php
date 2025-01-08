@@ -14,7 +14,7 @@
             <!-- Logo -->
             <div>
                 <a href="">
-                    <img src="https://placehold.co/100x100" alt="" width="50">
+                    <img src="{{ Vite::asset('resources/images/notes.png') }}" alt="" width="50">
                 </a>
             </div>
 
@@ -22,12 +22,11 @@
             <div class="space-x-6 font-semibold">
                 <a href="/" class="hover:underline">Home</a>
                 <a href="/notes" class="hover:underline">Notes</a>
-                <a href="/about" class="hover:underline">About</a>
             </div>
 
             <!-- Login, Register, Logout -->
             <div class="">
-                <a href="" class="text-white text-xl bg-red-700 hover:bg-red-800 rounded-lg px-5 py-2.5">Logout</a>
+                <a href="" class="text-white font-semibold text-md bg-red-700 hover:bg-red-800 rounded-lg px-5 py-2.5">Logout</a>
             </div>
         </nav>
 

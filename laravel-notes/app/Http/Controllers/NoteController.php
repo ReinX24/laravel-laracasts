@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
@@ -27,6 +29,18 @@ class NoteController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'title' => ['required'],
+            'content' => ['required', 'min:8']
+        ]);
+
+        // TODO: create login and store user_id as logged in user
+        Note::create([
+            'user_id' => 1,
+            'title' => request('title'),
+            'content' => request('content'),
+        ]);
+
         // Store in database and redirect to notes index
         dd('store note');
         // redirect('/notes');
