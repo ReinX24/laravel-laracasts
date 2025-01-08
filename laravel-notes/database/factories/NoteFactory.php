@@ -18,7 +18,7 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
+            'user_id' => 1,
             'title' => fake()->word(),
             'content' => fake()->sentence(255)
         ];

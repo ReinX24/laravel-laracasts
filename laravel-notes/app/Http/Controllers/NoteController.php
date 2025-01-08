@@ -12,7 +12,7 @@ class NoteController extends Controller
     public function index()
     {
         // Get the notes from our database
-        $notes = Note::with(['user'])->latest()->simplePaginate(5);
+        $notes = Note::where('user_id', Auth::user()->id)->latest()->simplePaginate(5);
 
         return view('notes.index', ['notes' => $notes]);
     }
@@ -27,29 +27,49 @@ class NoteController extends Controller
         return view('notes.create');
     }
 
-    public function store()
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => ['required'],
+            'content' => ['required', 'min:8']
+        ]);
+
+        Note::create([
+            'user_id' => Auth::user()->id,
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+        ]);
+
+        // Store in database and redirect to notes index
+        // dd('store note');
+        return redirect('/notes');
+    }
+
+    public function edit(Note $note)
+    {
+        return view('notes.edit', ['note' => $note]);
+    }
+
+    public function update(Note $note)
     {
         request()->validate([
             'title' => ['required'],
             'content' => ['required', 'min:8']
         ]);
 
-        // TODO: create login and store user_id as logged in user
-        Note::create([
-            'user_id' => 1,
+        $note->update([
             'title' => request('title'),
-            'content' => request('content'),
+            'content' => request('content')
         ]);
 
-        // Store in database and redirect to notes index
-        dd('store note');
-        // redirect('/notes');
+        return redirect('/notes/' . $note->id);
     }
 
-    public function delete()
+    public function destroy()
     {
         // Delete note and redirect to notes index
+        // TODO: delete notes
         dd('delete note');
-        // redirect('/notes');
+        return redirect('/notes');
     }
 }

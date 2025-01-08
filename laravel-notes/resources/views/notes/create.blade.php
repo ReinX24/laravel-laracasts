@@ -29,7 +29,7 @@
 
         <div class="mt-4 space-x-2">
             <button class="text-white text-xl bg-blue-700 hover:bg-blue-800 rounded-lg text-lg px-5 py-2.5">Save</button>
-            <a href="" class="text-white text-xl bg-gray-700 hover:bg-gray-800 rounded-lg text-lg px-5 py-2.5">Cancel</a>
+            <a href="/notes" class="text-white text-xl bg-gray-700 hover:bg-gray-800 rounded-lg text-lg px-5 py-2.5">Cancel</a>
         </div>
     </form>
 
