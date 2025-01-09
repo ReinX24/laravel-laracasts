@@ -14,9 +14,9 @@ Route::get('/notes', [NoteController::class, 'index'])->middleware('auth');
 Route::get('/notes/create', [NoteController::class, 'create'])->middleware('auth');
 Route::get('/notes/{note}', [NoteController::class, 'show'])->middleware('auth');
 Route::post('/notes', [NoteController::class, 'store'])->middleware('auth');
-Route::get('/notes/{note}/edit', [NoteController::class, 'edit']);
-Route::patch('/notes/{note}', [NoteController::class, 'update']);
-Route::delete('/notes/{note}', [NoteController::class, 'destroy']);
+Route::get('/notes/{note}/edit', [NoteController::class, 'edit'])->middleware('auth');
+Route::patch('/notes/{note}', [NoteController::class, 'update'])->middleware('auth');
+Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->middleware('auth');
 
 Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);

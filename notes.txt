@@ -171,3 +171,27 @@ php artisan make:controller TagController
 
 # Linking public uploaded photos to public folder
 php artisan storage:link
+
+# Laravel Chirper Notes
+
+# Creating project
+composer create laravel/laravel chirper
+
+# Installing laravel breeze and blade
+# Laravel breeze is for authentication and blade is for html templating
+composer require laravel/breeze --dev
+php artisan breeze:install blade
+
+# Creating a model, migration, and contoller for Chirp
+php artisan make:model -mrc Chirp
+php artisan make:model -mrc Chirp --help
+php artisan make:model --help
+
+# Showing routes
+php artisan route:list
+
+# Showing database information
+php artisan db:show
+
+# Showing users table
+php artisan db:table users
