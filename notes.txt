@@ -195,3 +195,27 @@ php artisan db:show
 
 # Showing users table
 php artisan db:table users
+
+# Migrating our database
+php artisan migrate
+
+# Starting a new artisan tinker session
+php artisan tinker
+
+# List all existing Chirps
+App\Models\Chirp::all();
+
+# Creating a policy for our Chirp model
+php artisan make:policy ChirpPolicy --model=Chirp
+
+# Creating a notification when a new Chirp is made
+php artisan make:notification NewChirp
+
+# Creating an events for when a Chirp is created
+php artisan make:event ChirpCreated
+
+# Creating an event listener for when a ChripCreated event is made
+php artisan make:listener SendChirpCreatedNotifications --event=ChirpCreated
+
+# Executing queued jobs, a job is queued when we a new notification is made
+php artisan queue:work
